@@ -1,0 +1,31 @@
+Routing-
+1)Required- specify the value in use
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name}', function ($name) {
+    return "The name is: ".$name;
+});
+
+2)optional- put option for some value , put ? and give parameter
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name?}', function ($name="Anu") {
+    return "The name is: ".$name;
+});
+
+3)multivalue Routing- it can have so many value
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name}/{id}', function ($name,$id) {
+    return "The name is: ".$name.$id;
+});
+
+4)constraint based routing- put constraints
+
+//Task-  Create a small routing application using laravel that demonstrates diffrent types of route parameters. First create a route /student/{name} where the 
+name is a required parameter and display a message like "welcome student: name".  next create another route /city/{name?} where the city name is optional; if 
+the user does not provide the city in the URL, the application should display :"City:Unknown". Finally create a route /product/{name}/{price} where the application
+accepts multiple parameters and displays the product name and price entered by the user in the URL.

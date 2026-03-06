@@ -1,0 +1,95 @@
+--->Laravel Directory Structure (with Purpose)
+1)app/
+Main folder of application logic.
+Http/Controllers/ → Contains controllers that handle request flow between model and view.
+Models/ → Contains models that interact with database using Eloquent ORM.
+Http/Middleware/ → Middleware that runs between request and controller for filtering (auth, security etc.).
+Providers/ → Service providers used to register services and boot application components.
+
+2)bootstrap/
+
+Used for bootstrapping the Laravel framework.
+
+app.php → Bootstraps the application and loads the framework.
+
+cache/ → Stores cached files for faster performance.
+
+3)config/
+
+Contains configuration files of the application.
+
+app.php → Main configuration file for application settings like name, timezone etc.
+
+database.php → Database configuration settings.
+
+cache.php → Cache configuration settings.
+
+mail.php → Mail service configuration.
+
+4)database/
+
+Used for database related operations.
+
+migrations/ → Files used to create and modify database tables.
+
+seeders/ → Used to insert sample or default data into database.
+
+factories/ → Used to generate fake data for testing.
+
+5)public/
+
+Publicly accessible folder.
+
+index.php → Entry point of Laravel application. All requests start from here.
+
+Stores public assets like images, CSS, JS.
+
+6)resources/
+
+Contains frontend resources.
+
+views/ → Blade templates (frontend UI files).
+
+css/ → Stylesheets.
+
+js/ → JavaScript files.
+
+7)routes/
+
+Defines application routes.
+
+web.php → Routes for web application (UI based routes).
+
+api.php → Routes for API requests.
+
+console.php → Routes for Artisan console commands.
+
+8)storage/
+
+Stores generated files by application.
+
+logs/ → Application log files.
+
+framework/ → Sessions, cache and compiled views.
+
+app/ → File storage used by application.
+
+9)tests/
+
+Contains automated test cases.
+
+10)vendor/
+
+Contains third-party packages installed via Composer.
+
+--->Important Root Files
+
+.env → Environment configuration (database, app key, mail etc.).
+
+artisan → Command line tool for Laravel (migrations, cache, routes etc.).
+
+composer.json → Dependency manager file for PHP packages.
+
+package.json → JavaScript dependencies.
+
+README.md → Project documentation.
