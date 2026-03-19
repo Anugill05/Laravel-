@@ -1,0 +1,8 @@
+step 1 creation of view 
+two ways right click and php artisan make :view viewname
+step 2 under web.php use route directly with views
+route::view ('/url','name of view')
+route::view('/use/it/223yz/laravel',student)
+in welcome.blade.php <a href="{{}}"</a>
+
+-->ways to pass data to view -array method

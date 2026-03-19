@@ -1,0 +1,338 @@
+models-backend logic,interacts with database
+controller-brain of mvc, handles request flow
+views-frontend
+middleware-acts between controller and model
+
+advantages of mvc-code reusabilty,scalability,testability,separation of concerns
+
+laravel-open source web framework written in php
+
+blade template engine in laravel-
+
+eloquent ORM-
+
+Artisan-cli that comes bundeled with laravel
+
+features of laravel-
+
+composer-dependancy manager for laravel
+
+cache- folder is used for encapsulation(data hiding)
+app.php in bootstrap folder is for routing
+app.php in config folder is for configuration ,,,,,--->Laravel Directory Structure (with Purpose)
+1)app/
+Main folder of application logic.
+Http/Controllers/ → Contains controllers that handle request flow between model and view.
+Models/ → Contains models that interact with database using Eloquent ORM.
+Http/Middleware/ → Middleware that runs between request and controller for filtering (auth, security etc.).
+Providers/ → Service providers used to register services and boot application components.
+
+2)bootstrap/
+
+Used for bootstrapping the Laravel framework.
+
+app.php → Bootstraps the application and loads the framework.
+
+cache/ → Stores cached files for faster performance.
+
+3)config/
+
+Contains configuration files of the application.
+
+app.php → Main configuration file for application settings like name, timezone etc.
+
+database.php → Database configuration settings.
+
+cache.php → Cache configuration settings.
+
+mail.php → Mail service configuration.
+
+4)database/
+
+Used for database related operations.
+
+migrations/ → Files used to create and modify database tables.
+
+seeders/ → Used to insert sample or default data into database.
+
+factories/ → Used to generate fake data for testing.
+
+5)public/
+
+Publicly accessible folder.
+
+index.php → Entry point of Laravel application. All requests start from here.
+
+Stores public assets like images, CSS, JS.
+
+6)resources/
+
+Contains frontend resources.
+
+views/ → Blade templates (frontend UI files).
+
+css/ → Stylesheets.
+
+js/ → JavaScript files.
+
+7)routes/
+
+Defines application routes.
+
+web.php → Routes for web application (UI based routes).
+
+api.php → Routes for API requests.
+
+console.php → Routes for Artisan console commands.
+
+8)storage/
+
+Stores generated files by application.
+
+logs/ → Application log files.
+
+framework/ → Sessions, cache and compiled views.
+
+app/ → File storage used by application.
+
+9)tests/
+
+Contains automated test cases.
+
+10)vendor/
+
+Contains third-party packages installed via Composer.
+
+--->Important Root Files
+
+.env → Environment configuration (database, app key, mail etc.).
+
+artisan → Command line tool for Laravel (migrations, cache, routes etc.).
+
+composer.json → Dependency manager file for PHP packages.
+
+package.json → JavaScript dependencies.
+
+README.md → Project documentation.,,,,,,,,,,Routing- 
+1)Required- specify the value in use
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name}', function ($name) {
+    return "The name is: ".$name;
+});
+
+2)optional- put option for some value , put ? and give parameter
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name?}', function ($name="Anu") {
+    return "The name is: ".$name;
+});
+
+3)multivalue Routing- it can have so many value
+
+<?php
+use Illuminate\Support\Facades\Route;
+Route::get('/username/{name}/{id}', function ($name,$id) {
+    return "The name is: ".$name.$id;
+});
+
+4)constraint based routing- put constraints
+
+
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+//required
+Route::get('/username/{name}', function ($name) {
+    return "The name is: ".$name;
+});
+
+//optional
+Route::get('/username/{name?}', function ($name="Anu") {
+    return "The name is: ".$name;
+});
+
+//multivalue
+Route::get('/username/{name}/{id}', function ($name,$id) {
+    return "The name is: ".$name.$id;
+});
+
+
+
+
+//Task-  Create a small routing application using laravel that demonstrates diffrent types of route parameters. First create a route /student/{name} where the 
+name is a required parameter and display a message like "welcome student: name".  next create another route /city/{name?} where the city name is optional; if 
+the user does not provide the city in the URL, the application should display :"City:Unknown". Finally create a route /product/{name}/{price} where the application
+accepts multiple parameters and displays the product name and price entered by the user in the URL.
+
+//Task1-Create a small routing application using laravel that demonstrates diffrent types of route parameters. First create a route /student/{name} where the 
+//name is a required parameter and display a message like "welcome student: name".  next create another route /city/{name?} where the city name is optional; if 
+//the user does not provide the city in the URL, the application should display :"City:Unknown". Finally create a route /product/{name}/{price} where the application
+//accepts multiple parameters and displays the product name and price entered by the user in the URL.
+Route::get('/student/{name}',function($name){
+    return 'Welcome Student: '.$name;
+});
+
+Route::get('/city/{name?}',function($name="Unknown"){
+    return 'City: '.$name;
+});
+
+Route::get('/product/{name}/{price}',function($name,$price){
+    return 'product name and price respectively: '. $name.$price;
+});
+
+this was taught in first class of laravel , <?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/username/{name}', function ($name) {
+//     return "The name is: " . $name;
+// });
+// Route::get('/username/{name?}', function ($name="Janhvi") {
+//     return "The name is: " . $name;
+// });
+// Route::get('/username/{name}/{id}', function ($name, $id) {
+//     return "The name and id are: " . $name.$id;
+// });
+// Route::get('/student/{name}', function ($name) {
+//     return "Welcome Student: " . $name;
+// });
+// Route::get('/city/{name?}', function ($name = "Unknown") {
+//     return "City: " . $name;
+// });
+
+//constraint Routing with Numbers
+// Route::get('/home/{id}', function ($id) {
+//     return "The value of id is: " . $id;
+// })->where('id', '[0-9]{2,4}');
+
+
+// Route::get('/home/{id}', function ($id) {
+//     return "The value of id is: " . $id;
+// })->where('id', '[0-9]+');
+
+//constraint Routing with Alphabets
+// Route::get('/home/{name}', function ($name) {
+//     return "The value of name is: " . $name;
+// })->where('name', '[A-Za-z]+');
+
+
+//     Route::get('/home', function () {
+//     return "I am inside home page";
+// });
+// Route::get('/about', function () {
+//     return "I am inside about page";
+// });
+// Route::fallback(function () {
+//     return "OOPS..BETTER LUCK NEXT TIME";
+// });
+
+
+// Route::prefix('master')->group(function () {
+
+//     Route::get('/home', function () {
+//         return "I am inside home page";
+//     });
+
+//     Route::get('/about', function () {
+//         return "I am inside about page";
+//     });
+//     Route::get('/profile', function () {
+//         return "I am inside profile page";
+//     });
+
+// });
+
+// Route::fallback(function () {
+//     return "OOPS..BETTER LUCK NEXT TIME";
+// });
+
+// Route::get('/home',function(){
+//     for($i=0;$i<5;$i++){
+//         echo "Welcome to Laravel".$i."<br>";
+//     }
+// });
+
+// Route::get('/home', function () {
+//     $output = "";
+
+//     for ($i = 0; $i < 5; $i++) {
+//         $output .= "Welcome to Laravel " . $i . "<br>";
+//     }
+
+//     return $output;
+// });
+// Route::fallback(function () {
+//     return "OOPS..BETTER LUCK NEXT TIME";
+// });
+
+
+// Route::get('/', function () {
+//     return "Welcome to Computer Science Event Registration System";
+// });
+
+// Route::get('/events', function () {
+
+//     $events = ["Cognita", "Internal Event", "Mini Expo", "Final Expo"];
+
+//     $output = "<h2>Available Events</h2>";
+
+//     foreach ($events as $event) {
+//         $output .= $event . "<br>";
+//     }
+
+//     return $output;
+// });
+
+// Route::get('/event/{name}', function ($name) {
+
+//     $events = ["Cognita", "Internal Event", "Mini Expo", "Final Expo"];
+
+//     if (in_array($name, $events)) {
+//         return "Details of Event: " . $name;
+//     } else {
+//         return "Event not found";
+//     }
+
+// });
+
+// Route::get('/register/{name}/{roll}', function ($name, $roll) {
+//     return "Student $name with Roll No $roll has registered successfully.";
+// });
+
+// Route::get('/student/{name}/{branch?}', function ($name, $branch = "CSE") {
+//     return "Student: $name , Branch: $branch";
+// });
+
+// Route::get('/roll/{roll}', function ($roll) {
+//     return "Roll Number: " . $roll;
+// })->where('roll', '[0-9]+');
+
+// Route::get('/eventid/{id}', function ($id) {
+//     return "Event ID: " . $id;
+// })->where('id', '[0-9]{3}');
+
+//step1: create a view 
+Route::get('/welcome',function(){
+    return view('/cse/scal/27block/web/cabin7','student')->name('details');
+});  this was taught in 2nd class, task given was Task2 -The Computer Science Department is organizing several events such as Cognita, Internal Event, Mini Expo, and Final Expo.
+ You are required to develop a small Event Registration System using Laravel Routing.
+a. Create routes to display the homepage with a welcome message and another route to display the list of available events. 
+b. Implement a route that allows users to view details of a specific event by passing the event name as a parameter in the URL.
+c.  Also create a route where students can register for an event by providing their name and roll number through route parameters.
+d.  Add another route where the student's branch is optional, so if it is not provided, a default value should be displayed. 
+e. Additionally, implement parameter constraints to ensure that the roll number accepts only numeric values and create another route where the ID must contain exactly three digits.
+test all routes by accessing them through appropriate URL's in the browser. this was all about day 1 and day 2 and i was absent on day2 . step 1 creation of view 
+two ways right click and php artisan make :view viewname
+step 2 under web.php use route directly with views
+route::view ('/url','name of view')
+route::view('/use/it/223yz/laravel',student)
+in welcome.blade.php <a href="{{}}"</a>  today mam is teaching this ,  am finding verything messy. todays task is task3 //create one route with optional prameter which will showcase unknown , if you are entering nothing in the url and if you enter details in the url then it will display palindrome number. my teacher taught this in 3 days. am making notes as well as writing the code for every topic. but am unable to do cuz i was absent n day2 . so make proper notes for these topics topicwise  also seggregate tasks and topics so that i dont find it messy. write notes  in .txt file and code in another 
