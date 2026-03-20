@@ -83,10 +83,32 @@ use Illuminate\Support\Facades\Cookie;
 
 
 //json response
-Route::get('/jsonresponse1',function(){
-    return response()->json([
-        "name"=>"Anu",
-        "age"=>40,
-        "subject"=>"laravel"
-    ]);
+// Route::get('/jsonresponse1',function(){
+//     return response()->json([
+//         "name"=>"Anu",
+//         "age"=>40,
+//         "subject"=>"laravel"
+//     ]);
+// });
+
+//laravel redirections
+//redirect to url
+// Route::get('/home',function(){
+//     return "Hie am inside home url";
+// });
+// Route::get('/about',function(){
+//     return redirect('/home');
+// });
+
+//redirect back
+Route::get('/profile',function(){
+    return("Hi am inside redirect url");
+});
+
+Route::get('/login',function(){
+    return 'login';
+});
+
+Route::get('/about',function(){
+    {return redirect()->back(302);}
 });
