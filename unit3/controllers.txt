@@ -1,0 +1,39 @@
+basic controller
+invokable controller
+api controller-php artisan make:controller APIYZController --api
+resource controller-php artisan make:controller ResourceYZController --resource
+
+steps for creating basic controller
+step 1- php artisan make:controller controllerName
+-for making a controller suffix controller is required after name of controller
+step 2- open created controller (in app->http->controller)
+step 3- create function inside your controller
+step 4- add imports of your controller in web.php
+step 5- add corresponding routes to web.php
+step 6- run your code with php artisan server with provided url
+
+for invokable
+step1 -php artisan make:controller TestingInvokeController --invokable
+step2 - in display function in controller file make object (give ids and name as key value pair)
+step3 - in web.php give path and id in path also 
+step4 - run with the given path and id(if id doesnt exist it show not found message)
+
+--->Task5- create a controller with name MyNewController , add two methods first method is calc and second method is pattern. 
+in first method , you have to do calculation(+,-,*,%) and in second you have to show 1 
+                                                                                     1 1
+                                                                                     1  1  1
+note- there should be no hardcoded value for alculator , you can either directly use 2 variables or make use of switch case.
+--->Task6- Testing controller - users controller qsn- if abc/1 in path then name+factorial of n 
+if abc/2 then name+<h1>Hi h1 to h6</h1>
+if abc/3 then oops not found
+
+--->Task6-Create a Laravel application that accepts user input through a form and performs the following tasks using a controller and views:
+Implement a method calc() in a controller that takes two numbers (x and y) from the user request and calculates their addition, subtraction,
+multiplication, and division. Display the results in a Blade view.
+Implement another method pattern() that takes a number n as input from the user and generates a pattern as shown below, displaying it in a Blade view:
+1
+1 1
+1 1 1
+...
+(up to n rows)
+Define appropriate routes in web.php to handle the requests and connect them with the controller methods.
