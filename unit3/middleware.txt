@@ -1,4 +1,4 @@
 --->types of middleware--
-1)custom middleware
+1)custom middleware -php artisan make:middleware MyYZMiddleware
 2)global middleware
 3)controller middleware
