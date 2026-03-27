@@ -13,3 +13,5 @@ open middleware file and set constraints
 regsiter for middleware in app.php in starting
 add middlware with route in web.php
 execute with url
+
+//Que- you have to add criteria of country and criteria of user in the middleware 

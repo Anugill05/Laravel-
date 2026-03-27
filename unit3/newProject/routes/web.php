@@ -8,6 +8,7 @@ use App\Http\Controllers\ResourceYZController;
 use App\Http\Controllers\APIYZController;
 use App\Http\Controllers\MiddlewareYZController;
 use App\Http\Controllers\GYZController;
+use App\Http\Controllers\BrainController;
 //Route::get('/firstyzcontroller', [FirstYZController::class,'show']);
 //Route::get('/abc/{id}',[FirstYZController::class,'display']);
 
@@ -18,3 +19,4 @@ Route::get('/pattern', [MyNewController::class, 'pattern']);
 Route::apiResource('items',APIYZController::class);
 Route::get('/middleware',[MiddlewareYZController::class,'display'])->middleware('agefactor');
 Route::get('/gm',[GYZController::class,'privacy']);
+Route::get('/brain',[BrainController::class,'access']);
