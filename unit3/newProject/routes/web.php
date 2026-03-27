@@ -7,6 +7,7 @@ use App\Http\Controllers\MyNewController;
 use App\Http\Controllers\ResourceYZController;
 use App\Http\Controllers\APIYZController;
 use App\Http\Controllers\MiddlewareYZController;
+use App\Http\Controllers\GYZController;
 //Route::get('/firstyzcontroller', [FirstYZController::class,'show']);
 //Route::get('/abc/{id}',[FirstYZController::class,'display']);
 
@@ -15,4 +16,5 @@ Route::get('/calc', [MyNewController::class, 'calc']);
 Route::get('/pattern', [MyNewController::class, 'pattern']);
 //Route::resource('abc',ResourceYZController::class);
 Route::apiResource('items',APIYZController::class);
-Route::get('/middleware',[MiddlewareYZController::class,'display']);
+Route::get('/middleware',[MiddlewareYZController::class,'display'])->middleware('agefactor');
+Route::get('/gm',[GYZController::class,'privacy']);

@@ -1,4 +1,15 @@
 --->types of middleware--
 1)custom middleware -php artisan make:middleware MyYZMiddleware
-2)global middleware
+2)global middleware -
 3)controller middleware
+
+//steps to create a middleware
+create controller
+add function in controller
+add imports in web.php
+route to controller run url
+create middleware
+open middleware file and set constraints
+regsiter for middleware in app.php in starting
+add middlware with route in web.php
+execute with url

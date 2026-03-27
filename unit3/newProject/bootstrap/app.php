@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        //register middleware here
+        // $middleware->alias([
+        //     'agefactor'=>\App\Http\Middleware\MyYZMiddleware::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

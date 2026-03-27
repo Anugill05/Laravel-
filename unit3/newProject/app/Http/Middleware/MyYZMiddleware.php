@@ -15,6 +15,11 @@ class MyYZMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        //set constraints here
+        $age=$request->query('age');
+        if(!$age || $age<19){
+            return response("Sorry, you are student, unauthorized");
+        }
         return $next($request);
     }
 }
