@@ -17,9 +17,9 @@ class BrainMiddleware
     {
         $name=$request->query('name');
         $cname=$request->query('cname');
-        if($name!="anu" || $cname!="kaithal"){
-            return response("unauthorized");
-        }
+        // if($name!="anu" || $cname!="kaithal"){
+        //     return response("unauthorized");
+        // }
         return $next($request);
     }
 }

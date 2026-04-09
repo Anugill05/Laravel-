@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class GYZController extends Controller
 {
     public function privacy(){
-        return "Congrats, successfully login";
+        return view('student');
     }
 }

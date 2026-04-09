@@ -1,1 +1,15 @@
 //allows you to reuse the header footer on different pages
+
+ca question - you have to use template inheritance and add complete navigation like home about profile login . this navigation will be displayed on every 
+child views you have 3 child views. and u have to add separate header and footers for each child, and footer of second child will be green in color and
+ third child must be red in color.
+
+
+
+ //group routing
+ //constraints
+ //blade templates
+
+task- display the subjects taught in sem 5, you have to use one for cse357, 2 for int221, 3 for cse332, 4 for pes319, 5 for pea306 . use switch case for displaying the subjects on blade template
+task- create 2 views first view contains picture of any cartoon character, when u click on that picture it will convert into spider man image(u can return the second view using controller) (use eventlistener onclick)
+
