@@ -1,0 +1,12 @@
+Step 1- create folder of lang under resource and under lang folder , create specific langauge based folder
+ (try to add your name class, for that save the code in those languages in your system similarly images)
+
+Step 2- Create a middleware in your project, register the middleware
+import - use Illuminate\Support\Facades\App; // IMPORTANT then write condition for session 
+
+Step 3- Create a view in the project(frontend) we have to fetch the keys from classes in lang folder using
+blade template using double underscore then make a form in which there is a drop down using select and option ,
+write onChange function in form="window.location.href=this.value" to select the language from drop down list,
+@csrf is mandatory
+
+Step 4- Add corresponding routes in the web.php render the view , associative array method , use redirect back
