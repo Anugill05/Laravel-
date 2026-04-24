@@ -13,3 +13,7 @@ child views you have 3 child views. and u have to add separate header and footer
 task- display the subjects taught in sem 5, you have to use one for cse357, 2 for int221, 3 for cse332, 4 for pes319, 5 for pea306 . use switch case for displaying the subjects on blade template
 task- create 2 views first view contains picture of any cartoon character, when u click on that picture it will convert into spider man image(u can return the second view using controller) (use eventlistener onclick)
 
+task-sample question- create two controllers in that create 4 functions in each , first function is rendering you to the view called data , second function 
+returning one image, when u click on that image the pattern of right angled triangle will be shown , below that there would be one url that will change 
+its color when you hover your mouse over it. when u click on that it will open a new view which will demonstrate the working of for each loop. in the 
+second controller you have to add the working of fibonacci series . when that fibonacci series appear , the color of the fibonacci series will be orange
