@@ -3,8 +3,11 @@
 use App\Http\Controllers\uploadYZController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\uploadYZControllerController;
+use App\Http\Controllers\EmailYZController;
+use App\Mail\TestingYZMail;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
+
 //upload file
 // Route::get('/abc',[uploadYZController::class,'show']);
 // Route::post('/upload',[uploadYZController::class,'upload']);
@@ -47,67 +50,70 @@ use Illuminate\Http\Request;
 //8 open /logout -> delete cookie and end session
 
 //1)Route to set cookie(city=mumbai)
-Route::get('/set-city', function () {
-    return response("City cookie has been set to Mumbai")
-        ->cookie('city', 'mumbai', 60); // 60 minutes
-});
+// Route::get('/set-city', function () {
+//     return response("City cookie has been set to Mumbai")
+//         ->cookie('city', 'mumbai', 60); // 60 minutes
+// });
 
-//2)Retrieve and display cookie
-Route::get('/get-city', function (Request $request) {
-    return "City is: " . $request->cookie('city');
-});
+// //2)Retrieve and display cookie
+// Route::get('/get-city', function (Request $request) {
+//     return "City is: " . $request->cookie('city');
+// });
 
-//3)verify whether cookie exists
-Route::get('/check-city', function (Request $request) {
-    if ($request->hasCookie('city')) {
-        return "City exists: " . $request->cookie('city');
-    } else {
-        return "cookie not found";
-    }
-});
+// //3)verify whether cookie exists
+// Route::get('/check-city', function (Request $request) {
+//     if ($request->hasCookie('city')) {
+//         return "City exists: " . $request->cookie('city');
+//     } else {
+//         return "cookie not found";
+//     }
+// });
 
-//4) Set multiple cookie using Cookie::queue()
-Route::get('/set-multiple', function () {
-    Cookie::queue('name', 'Anu', 60);
-    Cookie::queue('email', 'anu@example.com', 60);
+// //4) Set multiple cookie using Cookie::queue()
+// Route::get('/set-multiple', function () {
+//     Cookie::queue('name', 'Anu', 60);
+//     Cookie::queue('email', 'anu@example.com', 60);
 
-    return "Multiple cookies (name, email) have been set";
-});
+//     return "Multiple cookies (name, email) have been set";
+// });
 
-//form page
-Route::get('/form', function () {
-    return '
-        <form method="POST" action="/submit">
-            '.csrf_field().'
-            <input type="text" name="name" placeholder="Enter Name" required>
-            <button type="submit">Submit</button>
-        </form>
-    ';
-});
+// //form page
+// Route::get('/form', function () {
+//     return '
+//         <form method="POST" action="/submit">
+//             '.csrf_field().'
+//             <input type="text" name="name" placeholder="Enter Name" required>
+//             <button type="submit">Submit</button>
+//         </form>
+//     ';
+// });
 
-//handle form submission
-Route::post('/submit', function (Request $request) {
-    return response("Name stored in cookie")
-        ->cookie('name', $request->name, 60);
-});
+// //handle form submission
+// Route::post('/submit', function (Request $request) {
+//     return response("Name stored in cookie")
+//         ->cookie('name', $request->name, 60);
+// });
 
-//Simulate Login (store user_id in cookie)
-Route::get('/login', function () {
-    return response("User logged in")
-        ->cookie('user_id', 101, 60);
-});
+// //Simulate Login (store user_id in cookie)
+// Route::get('/login', function () {
+//     return response("User logged in")
+//         ->cookie('user_id', 101, 60);
+// });
 
-//Dashboard(check if user logged in)
-Route::get('/dashboard', function (Request $request) {
-    if ($request->hasCookie('user_id')) {
-        return "Welcome User ID: " . $request->cookie('user_id');
-    } else {
-        return "Please login first";
-    }
-});
+// //Dashboard(check if user logged in)
+// Route::get('/dashboard', function (Request $request) {
+//     if ($request->hasCookie('user_id')) {
+//         return "Welcome User ID: " . $request->cookie('user_id');
+//     } else {
+//         return "Please login first";
+//     }
+// });
 
-//logout-delete cookie and end session
-Route::get('/logout', function () {
-    return response("Logged out")
-        ->cookie(Cookie::forget('user_id'));
-});
+// //logout-delete cookie and end session
+// Route::get('/logout', function () {
+//     return response("Logged out")
+//         ->cookie(Cookie::forget('user_id'));
+// });
+
+//Sending emails
+Route::get('/abc',[EmailYZController::class,'send']);
